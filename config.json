@@ -1,5 +1,4 @@
 {
-	"token": "ODM0NjQwMDgwMzQxNjk2NTMy.YID1Jg.0gJz_Xj0i7_mwIhU2Qx6ap62Ycw",
+	"token": "ODMxODQ2OTE1MjIxMzU2NTc0.YHbLzw.bsB9GSYGSw3c0aMnjI9vWcTfqtA",
 	"mongoURI": "mongodb+srv://HeroicBeast:bbbshyawysys3bf@cluster0.svsto.mongodb.net/Data?retryWrites=true&w=majority",
-	"redispath": "//redis-16186.c99.us-east-1-4.ec2.cloud.redislabs.com:16186?password=7DqQFXSTkOQf6kAl1uvRclCzgkwRqjTU"
 }
