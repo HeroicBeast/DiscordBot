@@ -132,6 +132,11 @@ class Bot extends discord_js_1.Client {
 						Purge: String,
 						Unban: String,
 						Unmute: String,
+						Confusedstonks: String,
+						Discordblack: String,
+						Discordblue: String,
+						Stonks: String,
+						Doublestonks: String,
 					},
 				},
 				{

@@ -26,7 +26,7 @@ const run = async (client, message, args) => {
 		.embed({ fields, color: '#30D5C8', title: 'Help Menu' }, message)
 		.setFooter(
 			`Developed By ! The Heroic Beast#4445 and </GamerDuck>#6969 | ${
-				client.commands.size - 5
+				client.commands.size - 4
 			} Available Commands`,
 			message.author.displayAvatarURL({ format: 'png', dynamic: true })
 		)
@@ -69,7 +69,7 @@ const run = async (client, message, args) => {
 			)
 			.setFooter(
 				`Developed By ! The Heroic Beast#4445 and </GamerDuck>#6969 | ${
-					client.commands.size - 5
+					client.commands.size - 4
 				} Available Commands`,
 				message.author.displayAvatarURL({ format: 'png', dynamic: true })
 			)

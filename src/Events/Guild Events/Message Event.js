@@ -35,36 +35,6 @@ const run = async (client, message) => {
 			)
 		);
 	if (
-		message.content.startsWith(`-maintenance`) &&
-		(message.author.id !== '656432172722290688' ||
-			message.author.id !== '648031359096586247')
-	) {
-		if (dev.Maintenance == `false`) {
-			DevSchema.update(
-				{ ID: `656432172722290688` },
-				{ Maintenance: `true` }
-			).then(() =>
-				message.channel
-					.send(
-						`Maintenance Mode Has Been Turned On! To Disable It do -maintenance`
-					)
-					.then(() => client.user.setActivity(`Maintenance Mode!`))
-			);
-			client.user.setActivity('Maintenance Mode', { type: 'PLAYING' });
-		} else if (dev.Maintenance == `true`) {
-			DevSchema.update({ ID: `656432172722290688` }, { Maintenance: `false` })
-				.then(() =>
-					message.channel.send(`Maintenance Mode Has Been Turned Off!`)
-				)
-				.then(() =>
-					client.user.setActivity(
-						`${client.guilds.cache.size} Servers and ${client.users.cache.size} Users! || Invite Me At dsc.gg/nexus-discord-bot`,
-						{ type: 'WATCHING' }
-					)
-				);
-		} else message.channel.send('Errored...');
-	}
-	if (
 		message.author.bot ||
 		!message.guild ||
 		!message.content.startsWith(prefix)
@@ -167,7 +137,7 @@ const run = async (client, message) => {
 	}
 	if (command.name == 'ban') {
 		if (GuildConfig?.Ban == 'disabled') {
-			return message.channel.send('This Command Is Disabled');
+			return await message.channel.send('This Command Is Disabled');
 		}
 	}
 	if (command.name == 'kick') {
@@ -198,6 +168,31 @@ const run = async (client, message) => {
 	if (command.name == 'unmute') {
 		if (GuildConfig?.Unmute == 'disabled') {
 			return message.channel.send('This Command Is Disabled');
+		}
+	}
+	if (command.name == 'confusedstonks') {
+		if (GuildConfig?.Confusedstonks == 'disabled') {
+			return message.channel.send('This Command Is Disabled');
+		}
+	}
+	if (command.name == 'discordblack') {
+		if (GuildConfig?.Discordblack == 'disabled') {
+			return message.channel.send('This Command Is Disabled');
+		}
+	}
+	if (command.name == 'discordblue') {
+		if (GuildConfig?.Discordblue == 'disabled') {
+			return message.channel.send('This Command Is Disabled');
+		}
+	}
+	if (command.name == 'doublestonks') {
+		if (GuildConfig?.Doublestonks == 'disabled') {
+			return message.channel.send(`This Command Is Disabled`);
+		}
+	}
+	if (command.name == 'stonks') {
+		if (GuildConfig?.Stonks == 'disabled') {
+			return message.channel.send(`This Command is Disabled`);
 		}
 	}
 	if (client.cooldowns.has(`${message.author.id}-${command.name}`))

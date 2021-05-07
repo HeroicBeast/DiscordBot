@@ -20,7 +20,7 @@ const run = async (client, message, args) => {
 		).then(() =>
 			message.channel
 				.send(
-					`Maintenance Mode Has Been Turned On! To Disable It do -maintenance`
+					`Maintenance Mode Has Been Turned On! To Disable It, Go To Your Mongodb Account and In Clusters Collection Turn The String To False`
 				)
 				.then(() => client.user.setActivity(`Maintenance Mode!`))
 		);

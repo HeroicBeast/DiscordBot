@@ -46,30 +46,25 @@ exports.usage = exports.description = exports.cooldown = exports.category = expo
 const e = __importStar(require('discord-image-generation'));
 const discord_js_1 = __importDefault(require('discord.js'));
 const run = async (client, message, args) => {
-	let img = await new e.Blink().getImage(
-		client.user.displayAvatarURL({ format: 'png', dynamic: false }),
+	let img = await new e.Stonk().getImage(
 		message.author.displayAvatarURL({ format: 'png', dynamic: false })
 	);
-	let attch = new discord_js_1.default.MessageAttachment(img, 'Blink.gif');
+	let attch = new discord_js_1.default.MessageAttachment(img, 'Ad.png');
 	if (!args.length) return message.channel.send(attch);
 	let member =
 		message.mentions.members.first() ||
 		message.guild.members.cache.get(args[0]);
 	if (!member) return message.channel.send(attch);
-	if (message.mentions.members.first().user.id == message.author.id)
-		return message.channel.send(attch);
-	if (args[0] == message.author.id) return message.channel.send(attch);
-	let img2 = await new e.Blink().getImage(
-		message.author.displayAvatarURL({ format: 'png', dynamic: false }),
+	let img2 = await new e.Stonk().getImage(
 		member.user.displayAvatarURL({ format: 'png', dynamic: false })
 	);
-	let attch2 = new discord_js_1.default.MessageAttachment(img2, 'Blink.gif');
+	let attch2 = new discord_js_1.default.MessageAttachment(img2, 'Ad.png');
 	message.channel.send(attch2);
 };
 exports.run = run;
-exports.name = 'blink';
+exports.name = 'stonks';
 exports.category = 'Image';
 exports.cooldown = 5000;
-exports.description = 'Make 2 Avatars Blink';
-exports.usage = 'blink <mention or id>';
-//# sourceMappingURL=Blink.js.map
+exports.description = 'Stonks <:stonks:840257086201397258>';
+exports.usage = 'stonks <mention or id>';
+//# sourceMappingURL=Stonks.js.map

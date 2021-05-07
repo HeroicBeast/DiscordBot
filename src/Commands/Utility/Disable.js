@@ -518,6 +518,110 @@ const run = async (client, message, args) => {
 			});
 		}
 	}
+	if (args[0].toLowerCase() == 'confusedstonks') {
+		if (GuildConfig?.Confusedstonks == 'disabled') {
+			return message.channel.send(
+				'The Command **ConfusedStonks** Is Already Disabled'
+			);
+		} else {
+			const msg = await message.channel.send('Disabling The Command...');
+			await GuildConfigSchema.update(
+				{ Guild: message.guild.id },
+				{ Confusedstonks: 'disabled' }
+			).then(async () => {
+				await message.channel.send(
+					`The Command **ConfusedStonks** Has Been Disabled`
+				);
+				msg.delete();
+			});
+		}
+	}
+	if (args[0].toLowerCase() == 'discordblack') {
+		if (GuildConfig?.Discordblack == 'disabled') {
+			return message.channel.send(
+				'The Command **DiscordBlack** Is Already Disabled'
+			);
+		} else {
+			const msg = await message.channel.send('Disabling The Command...');
+			await GuildConfigSchema.update(
+				{ Guild: message.guild.id },
+				{ Discordblack: 'disabled' }
+			).then(async () => {
+				await message.channel.send(
+					`The Command **DiscordBlack** Has Been Disabled`
+				);
+				msg.delete();
+			});
+		}
+	}
+	if (args[0].toLowerCase() == 'discordblue') {
+		if (GuildConfig?.Discordblue == 'disabled') {
+			return message.channel.send(
+				'The Command **DiscordBlue** Is Already Disabled'
+			);
+		} else {
+			const msg = await message.channel.send('Disabling The Command...');
+			await GuildConfigSchema.update(
+				{ Guild: message.guild.id },
+				{ Discordblue: 'disabled' }
+			).then(async () => {
+				await message.channel.send(
+					`The Command **DiscordBlue** Has Been Disabled`
+				);
+				msg.delete();
+			});
+		}
+	}
+	if (args[0].toLowerCase() == 'stonks') {
+		if (GuildConfig?.Stonks == 'disabled') {
+			return message.channel.send('The Command **Stonks** Is Already Disabled');
+		} else {
+			const msg = await message.channel.send('Disabling The Command...');
+			await GuildConfigSchema.update(
+				{ Guild: message.guild.id },
+				{ Stonks: 'disabled' }
+			).then(async () => {
+				await message.channel.send(`The Command **Stonks** Has Been Disabled`);
+				msg.delete();
+			});
+		}
+	}
+	if (args[0].toLowerCase() == 'doublestonks') {
+		if (GuildConfig?.Doublestonks == 'disabled') {
+			return message.channel.send(
+				'The Command **DoubleStonks** Is Already Disabled'
+			);
+		} else {
+			const msg = await message.channel.send('Disabling The Command...');
+			await GuildConfigSchema.update(
+				{ Guild: message.guild.id },
+				{ Doublestonks: 'disabled' }
+			).then(async () => {
+				await message.channel.send(
+					`The Command **DoubleStonks** Has Been Disabled`
+				);
+				msg.delete();
+			});
+		}
+	}
+	if (args[0].toLowerCase() == 'dstonks') {
+		if (GuildConfig?.Doublestonks == 'disabled') {
+			return message.channel.send(
+				'The Command **DoubleStonks** Is Already Disabled'
+			);
+		} else {
+			const msg = await message.channel.send('Disabling The Command...');
+			await GuildConfigSchema.update(
+				{ Guild: message.guild.id },
+				{ Doublestonks: 'disabled' }
+			).then(async () => {
+				await message.channel.send(
+					`The Command **DoubleStonks** Has Been Disabled`
+				);
+				msg.delete();
+			});
+		}
+	}
 };
 exports.run = run;
 exports.name = 'disable';
