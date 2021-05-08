@@ -137,6 +137,7 @@ class Bot extends discord_js_1.Client {
 						Discordblue: String,
 						Stonks: String,
 						Doublestonks: String,
+						Slowmode: String,
 					},
 				},
 				{

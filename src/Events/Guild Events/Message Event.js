@@ -195,6 +195,11 @@ const run = async (client, message) => {
 			return message.channel.send(`This Command is Disabled`);
 		}
 	}
+	if (command.name == 'slowmode') {
+		if (GuildConfig?.Slowmode == 'disabled') {
+			return message.channel.send(`This Command is Disabled`);
+		}
+	}
 	if (client.cooldowns.has(`${message.author.id}-${command.name}`))
 		return await message.channel
 			.send(

@@ -4,13 +4,13 @@ exports.usage = exports.description = exports.cooldown = exports.category = expo
 const run = async (client, message, args) => {
 	let mc = message.channel;
 	if (!mc.permissionsFor(message.guild.me).has('SEND_MESSAGES')) return;
-	if (!message.member.hasPermission(`MANAGE_MESSAGES`))
+	if (!mc.permissionsFor(message.author).has(`MANAGE_MESSAGES`))
 		return message.channel.send(
 			client
 				.embed(
 					{
 						description:
-							'**You are Missing The Manage Messages Permission To Use This Command**',
+							'**You are Missing The Permission To Manage Messages In This Channel To Use This Command**',
 						color: 'RANDOM',
 					},
 					message

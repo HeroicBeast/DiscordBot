@@ -622,6 +622,42 @@ const run = async (client, message, args) => {
 			});
 		}
 	}
+	if (args[0].toLowerCase() == 'slowmode') {
+		if (GuildConfig?.Slowmode == 'disabled') {
+			return message.channel.send(
+				'The Command **Slowmode** Is Already Disabled'
+			);
+		} else {
+			const msg = await message.channel.send('Disabling The Command...');
+			await GuildConfigSchema.update(
+				{ Guild: message.guild.id },
+				{ Slowmode: 'disabled' }
+			).then(async () => {
+				await message.channel.send(
+					`The Command **Slowmode** Has Been Disabled`
+				);
+				msg.delete();
+			});
+		}
+	}
+	if (args[0].toLowerCase() == 'sm') {
+		if (GuildConfig?.Slowmode == 'disabled') {
+			return message.channel.send(
+				'The Command **Slowmode** Is Already Disabled'
+			);
+		} else {
+			const msg = await message.channel.send('Disabling The Command...');
+			await GuildConfigSchema.update(
+				{ Guild: message.guild.id },
+				{ Slowmode: 'disabled' }
+			).then(async () => {
+				await message.channel.send(
+					`The Command **Slowmode** Has Been Disabled`
+				);
+				msg.delete();
+			});
+		}
+	}
 };
 exports.run = run;
 exports.name = 'disable';
