@@ -8,7 +8,7 @@ const run = async (client, message, args) => {
 	const GuildConfig = await GuildConfigSchema.findOne({
 		Guild: message.guild.id,
 	});
-	let prefix = GuildConfig.Prefix || '+';
+	let prefix = GuildConfig?.Prefix || '+';
 	if (!message.member.hasPermission('MANAGE_GUILD'))
 		return message.channel.send(
 			client
