@@ -200,6 +200,11 @@ const run = async (client, message) => {
 			return message.channel.send(`This Command is Disabled`);
 		}
 	}
+	if (command.name == 'lockdown') {
+		if (GuildConfig?.Lockdown == 'disabled') {
+			return message.channel.send(`This Command is Disabled`);
+		}
+	}
 	if (client.cooldowns.has(`${message.author.id}-${command.name}`))
 		return await message.channel
 			.send(
