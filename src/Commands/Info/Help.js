@@ -82,4 +82,5 @@ exports.category = 'Info';
 exports.cooldown = 5000;
 exports.description = 'Shows The Help Menu';
 exports.usage = 'help <command>';
+exports.aliases = ['?'];
 //# sourceMappingURL=Help.js.map

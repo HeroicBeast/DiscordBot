@@ -657,6 +657,42 @@ const run = async (client, message, args) => {
 			});
 		}
 	}
+	if (args[0].toLowerCase() == 'lockdown') {
+		if (GuildConfig?.Lockdown == 'disabled') {
+			return message.channel.send(
+				'The Command **Lockdown** Is Already Disabled'
+			);
+		} else {
+			const msg = await message.channel.send('Disabling The Command...');
+			await GuildConfigSchema.update(
+				{ Guild: message.guild.id },
+				{ Lockdown: 'disabled' }
+			).then(async () => {
+				await message.channel.send(
+					`The Command **Lockdown** Has Been Disabled`
+				);
+				msg.delete();
+			});
+		}
+	}
+	if (args[0].toLowerCase() == 'ld') {
+		if (GuildConfig?.Lockdown == 'disabled') {
+			return message.channel.send(
+				'The Command **Lockdown** Is Already Disabled'
+			);
+		} else {
+			const msg = await message.channel.send('Disabling The Command...');
+			await GuildConfigSchema.update(
+				{ Guild: message.guild.id },
+				{ Lockdown: 'disabled' }
+			).then(async () => {
+				await message.channel.send(
+					`The Command **Lockdown** Has Been Disabled`
+				);
+				msg.delete();
+			});
+		}
+	}
 };
 exports.run = run;
 exports.name = 'disable';

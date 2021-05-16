@@ -8,7 +8,6 @@ const run = async (client, message, args) => {
 	const GuildConfig = await GuildConfigSchema.findOne({
 		Guild: message.guild.id,
 	});
-	let prefix = GuildConfig?.Prefix || '+';
 	if (!message.member.hasPermission('MANAGE_GUILD'))
 		return message.channel.send(
 			client
@@ -617,6 +616,40 @@ const run = async (client, message, args) => {
 				{ Slowmode: 'enabled' }
 			).then(async () => {
 				await message.channel.send(`The Command **Slowmode** Has Been Enabled`);
+				msg.delete();
+			});
+		}
+	}
+	if (args[0].toLowerCase() == 'lockdown') {
+		if (GuildConfig?.Lockdown == 'disabled') {
+			return message.channel.send(
+				'The Command **Lockdown** Is Already Disabled'
+			);
+		} else {
+			const msg = await message.channel.send('Disabling The Command...');
+			await GuildConfigSchema.update(
+				{ Guild: message.guild.id },
+				{ Lockdown: 'disabled' }
+			).then(async () => {
+				await message.channel.send(
+					`The Command **Lockdown** Has Been Disabled`
+				);
+				msg.delete();
+			});
+		}
+	}
+	if (args[0].toLowerCase() == 'ld') {
+		if (GuildConfig?.Lockdown == 'enabled') {
+			return message.channel.send(
+				'The Command **Lockdown** Is Already Enabled'
+			);
+		} else {
+			const msg = await message.channel.send('Enabling The Command...');
+			await GuildConfigSchema.update(
+				{ Guild: message.guild.id },
+				{ Lockdown: 'enabled' }
+			).then(async () => {
+				await message.channel.send(`The Command **Lockdown** Has Been Enabled`);
 				msg.delete();
 			});
 		}
