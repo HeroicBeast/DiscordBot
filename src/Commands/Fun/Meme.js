@@ -45,12 +45,13 @@ const run = async (client, message, args) => {
 	const subreddits = [
 		'Memes',
 		'dankmemes',
-		'funny',
-		'PerfectTiming',
 		'AdviceAnimals',
 		'MemeEconomy',
-		'PrequelMemes',
 		'terriblefacebookmemes',
+'deepfriedmemes',
+'surrealmemes',
+		'nukedmemes',
+		'bigbangedmemes',
 	];
 	const subreddit = subreddits[Math.floor(Math.random() * subreddits.length)];
 	const meme = await api.advanced(subreddit, 'top');
