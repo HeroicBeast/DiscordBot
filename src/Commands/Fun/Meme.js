@@ -45,7 +45,6 @@ const run = async (client, message, args) => {
 	const subreddits = [
 		'Memes',
 		'dankmemes',
-		'MemeEconomy',
 		'terriblefacebookmemes',
 	];
 	const subreddit = subreddits[Math.floor(Math.random() * subreddits.length)];
