@@ -76,7 +76,7 @@ const run = async (client, message) => {
 		}
 	}
 	if (command.name == 'bed') {
-		if (GuildConfig?.Blink == 'disabled') {
+		if (GuildConfig?.Bed == 'disabled') {
 			return message.channel.send('This Command Is Disabled');
 		}
 	}
