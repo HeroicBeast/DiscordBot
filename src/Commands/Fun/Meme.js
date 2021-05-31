@@ -49,6 +49,7 @@ const run = async (client, message, args) => {
 		'PewdiepieSubmissions',
 		'ComedyCemetery',
 		'funny',
+'meirl',
 	];
 	const subreddit = subreddits[Math.floor(Math.random() * subreddits.length)];
 	const meme = await api.advanced(subreddit, 'top');
