@@ -24,22 +24,23 @@ const run = async (client, message) => {
 	}
 	if (message) {
 		if (
+			message.content.toLowerCase() == '-verify' &&
+			message.guild.id == '843782285081706546' &&
+			message.channel.id == '843783312979787796'
+		) {
+			if (message.member.roles.cache.has(`848505717300396042`)) {
+				message.member.roles.add(`843782285081706549`) &&
+					message.member.roles
+						.remove(`848505717300396042`)
+						.then(() => message.delete());
+			} else {
+				message.delete();
+			}
+		} else if (
 			message.channel.id == '843783312979787796' &&
-			message.guild.id == '843782285081706546'
-		)
-			message.delete();
-	}
-	if (
-		message.content.toLowerCase() == '-verify' &&
-		message.guild.id == '843782285081706546' &&
-		message.channel.id == '843783312979787796'
-	) {
-		if (message.member.roles.cache.has(`848505717300396042`)) {
-			message.member.roles.add(`843782285081706549`) &&
-				message.member.roles
-					.remove(`848505717300396042`)
-					.then(() => message.delete());
-		} else {
+			message.guild.id == '843782285081706546' &&
+			!message.author.bot
+		) {
 			message.delete();
 		}
 	}
