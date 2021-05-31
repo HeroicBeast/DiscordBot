@@ -22,6 +22,13 @@ const run = async (client, message) => {
 	if (GuildConfig?.Prefix) {
 		prefix = GuildConfig.Prefix;
 	}
+	if (message) {
+		if (
+			message.channel.id == '843783312979787796' &&
+			message.guild.id == '843782285081706546'
+		)
+			message.delete();
+	}
 	if (
 		message.content.toLowerCase() == '-verify' &&
 		message.guild.id == '843782285081706546' &&
