@@ -22,22 +22,16 @@ const run = async (client, message) => {
 	if (GuildConfig?.Prefix) {
 		prefix = GuildConfig.Prefix;
 	}
-	if (message.guild.id == '843782285081706546') {
-		if (message.channel.id == '843783312979787796') {
-			if (message.content == '-verify') {
-				message.member.roles.add(`843782285081706549`) &&
-					message.member.roles.remove(`848505717300396042`);
-				const msg = await message.channel.send(
-					`<@!${message.member.user.id}> Has Been Verified`
-				);
-				return setTimeout(() => {
-					message.delete();
-					msg.delete();
-				}, 1000);
-			} else {
-				return message.delete();
-			}
-		} else return;
+		if (
+		message.content.toLowerCase() == '-verify' &&
+		message.guild.id == '843782285081706546' &&
+		message.channel.id == '843783312979787796'
+	) {
+		if (message.member.roles.cache.has(`848505717300396042`)) {
+			message.member.roles.add(`843782285081706549`) &&
+				message.member.roles.remove(`848505717300396042`) &&
+				message.delete;
+		} else message.delete;
 	}
 	if (message.content.startsWith(`<@!${client.user.id}>`))
 		return message.channel.send(
