@@ -57,6 +57,10 @@ const run = async (client, message, args) => {
 		return message.channel.send(`Couldn't Get That Meme.. Try Again?`);
 	if (meme.img.includes('gallery'))
 		return message.channel.send(`Couldn't Get That Meme.. Try Again?`);
+	if (meme.img.includes('v.reddit'))
+		return message.channel.send(`Couldn't Get That Meme.. Try Again?`);
+	if (meme.img.includes('youtu.be'))
+		return message.channel.send(`Couldn't Get That Meme.. Try Again?`);
 	message.channel.send(
 		client
 			.embed(
