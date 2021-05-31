@@ -97,12 +97,6 @@ const run = async (client, message) => {
 	const command =
 		client.commands.get(cmd) || client.commands.get(client.aliases.get(cmd));
 	if (!command) return;
-	if(message.channel.id = "843782285375045656") {
-		if(!message.member.roles.cache.has(`843782285089701930`) || !message.member.roles.cache.has(`843782285089701929`) || !message.member.roles.cache.has(`843782285089701928`)) return;
-	}
-	if(message.channel.id = "843782285375045657") {
-		if(!message.member.roles.cache.has(`843782285089701930`) || !message.member.roles.cache.has(`843782285089701929`) || !message.member.roles.cache.has(`843782285089701928`)) return;
-	}
 	if (command.name == 'avatar') {
 		if (GuildConfig?.Avatar == 'disabled') {
 			return message.channel.send('This Command Is Disabled');
