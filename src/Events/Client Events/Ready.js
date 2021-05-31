@@ -8,7 +8,7 @@ const run = async (client) => {
 		} Users!`
 	);
 	client.user.setActivity(
-		`${client.guilds.cache.size} Servers and ${client.users.cache.size} Users! || Invite Me At dsc.gg/nexus-discord-bot`,
+		`${client.guilds.cache.size} Servers and ${client.users.cache.size} Users! || Invite Me At dsc.gg/thenexusbot`,
 		{ type: 'WATCHING' }
 	);
 	let channel = client.channels.cache.get(`835169189824036954`);
