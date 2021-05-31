@@ -219,23 +219,6 @@ const run = async (client, message, args) => {
 			});
 		}
 	}
-	if (args[0].toLowerCase() == 'blink') {
-		if (GuildConfig?.Blink == 'enabled') {
-			return message.channel.send('The Command **Blink** Is Already Disabled');
-		} else {
-			const msg = await message.channel.send('Enabling The Command...');
-			await GuildConfigSchema.update(
-				{ Guild: message.guild.id },
-				{ Blink: 'enabled' }
-			).then(() => {
-				return message.channel
-					.send(`The Command **Blink** Has Been Enabled`)
-					.then(() => {
-						msg.delete();
-					});
-			});
-		}
-	}
 	if (args[0].toLowerCase() == 'blur') {
 		if (GuildConfig?.Blur == 'enabled') {
 			return message.channel.send('The Command **Blur** Is Already Enabled');

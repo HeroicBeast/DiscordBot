@@ -15,7 +15,7 @@ const run = async (client, message, args) => {
 				{
 					title: 'Shut Down The Bot?',
 					description:
-						'\\✅ Click this to shutdown the bot! \n\\❌ Click this to cancel the process!',
+						'\\<:check:847162810622410793> Click this to shutdown the bot! \n\\❌ Click this to cancel the process!',
 					color: 'RANDOM',
 				},
 				message
@@ -26,7 +26,7 @@ const run = async (client, message, args) => {
 			)
 			.setTimestamp()
 	);
-	await msg.react('✅');
+	await msg.react('<:check:847162810622410793>');
 	await msg.react('❌');
 	const collector = msg.createReactionCollector(
 		(reaction, user) => user.id == message.author.id
@@ -38,7 +38,7 @@ const run = async (client, message, args) => {
 			});
 			return msg.delete({ timeout: 2000 });
 		}
-		if (reaction.emoji.name === '✅') {
+		if (reaction.emoji.name === '<:check:847162810622410793>') {
 			message.channel.send('Shutting This Bot Down...').then(() => {
 				process.exit(1);
 			});

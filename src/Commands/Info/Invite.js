@@ -6,19 +6,23 @@ const run = async (client, message, args) => {
 	let mc = message.channel;
 	if (!mc.permissionsFor(message.guild.me).has('SEND_MESSAGES')) return;
 	let e1 = new discord_js_1.MessageEmbed()
-		.setTitle('Invite Menu')
+		.setTitle('Invite and Support Menu')
 		.setDescription(
 			'Click On The Link You Want\nClick on \\❌ To Delete This Message'
 		)
 		.addField(
 			`Invite Link With Administrator Permissions`,
-			`[Click Here](https://discord.com/api/oauth2/authorize?client_id=831846915221356574&permissions=8&scope=bot%20applications.commands)`,
+			`[Click Here](https://dsc.gg/thenexusbot)`,
 			true
 		)
 		.addField(
 			`Invite Link With Customizable Permissions`,
-			`[Click Here](https://discord.com/api/oauth2/authorize?client_id=831846915221356574&permissions=4260752503&scope=bot%20applications.commands)`,
+			`[Click Here](https://dsc.gg/nexuscustomperms)`,
 			true
+		)
+		.addField(
+			`Need Help? Join The Support Server`,
+			`[Click Here](https://dsc.gg/nexussupport)`
 		)
 		.setFooter(
 			`I would recommend you Administrator though, it simplifies things a lot. || ${message.author.username}`,
@@ -42,7 +46,7 @@ const run = async (client, message, args) => {
 };
 exports.run = run;
 exports.name = 'invite';
-exports.aliases = ['inv'];
+exports.aliases = ['support'];
 exports.category = 'Info';
 exports.cooldown = 5000;
 exports.description = `Invite The Bot!`;

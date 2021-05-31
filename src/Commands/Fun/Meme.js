@@ -46,16 +46,21 @@ const run = async (client, message, args) => {
 		'Memes',
 		'dankmemes',
 		'Relatable',
+		'PewdiepieSubmissions',
+		'ComedyCemetery',
+		'funny',
 	];
 	const subreddit = subreddits[Math.floor(Math.random() * subreddits.length)];
 	const meme = await api.advanced(subreddit, 'top');
-	if (!meme.img)
-		return message.channel.send("Couldn't Get That Meme. Try Again?");
+	if (meme.img.includes('imgur'))
+		return message.channel.send(`Couldn't Get That Meme.. Try Again?`);
+	if (meme.img.includes('gallery'))
+		return message.channel.send(`Couldn't Get That Meme.. Try Again?`);
 	message.channel.send(
 		client
 			.embed(
 				{
-					title: meme.title || 'No Title',
+					title: meme.title || 'No Title Provided',
 					description: `**${meme.upvoteRatio}% People Liked [This Meme](${meme.img}) from [r/${subreddit}](https://reddit.com/r/${subreddit})**`,
 					color: 'RANDOM',
 					image: {
