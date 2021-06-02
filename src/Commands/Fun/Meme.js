@@ -48,18 +48,13 @@ const run = async (client, message, args) => {
 		'Relatable',
 		'PewdiepieSubmissions',
 		'ComedyCemetery',
-		'funny',
-'meirl',
 	];
 	const subreddit = subreddits[Math.floor(Math.random() * subreddits.length)];
 	const meme = await api.advanced(subreddit, 'top');
-	if (meme.img.toLowerCase().includes('imgur'))
-		return message.channel.send(`Couldn't Get That Meme.. Try Again?`);
-	if (meme.img.toLowerCase().includes('gallery'))
-		return message.channel.send(`Couldn't Get That Meme.. Try Again?`);
-	if (meme.img.toLowerCase().includes('v.redd.it'))
-		return message.channel.send(`Couldn't Get That Meme.. Try Again?`);
-	if (meme.img.toLowerCase().includes('youtu.be'))
+	if (meme.img.includes('imgur')) return message.channel.send(meme.img);
+	if (meme.img.includes('gallery')) return message.channel.send(meme.img);
+	if (meme.img.includes('v.redd.it')) return message.channel.send(meme.img);
+	if (meme.img.includes('youtu.be'))
 		return message.channel.send(`Couldn't Get That Meme.. Try Again?`);
 	message.channel.send(
 		client
