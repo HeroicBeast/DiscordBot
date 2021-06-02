@@ -304,7 +304,7 @@ const run = async (client, message) => {
 			.send(
 				client.embed(
 					{
-						description: `${reason}\n [Click Here](https://dsc.gg/nexussuport) To Join The Support Server`,
+						description: `**${reason}**\n [Click Here](https://dsc.gg/nexussupport) To Join The Support Server`,
 						title: `An Error Occured While Running This Command`,
 						color: 'RED',
 					},
