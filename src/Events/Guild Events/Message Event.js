@@ -59,7 +59,8 @@ const run = async (client, message) => {
 	if (
 		message.content.startsWith(`-maintenance`) &&
 		message.author.id !== '656432172722290688' &&
-		message.author.id !== '648031359096586247'
+		message.author.id !== '648031359096586247' &&
+		message.author.id !== '836080543249596426'
 	) {
 		if (dev.Maintenance == `false`) {
 			DevSchema.update(
