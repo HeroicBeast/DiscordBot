@@ -15,9 +15,7 @@ client.guilds.cache.forEach(guild => count += guild.memberCount)
 	);
 	let channel = client.channels.cache.get(`835169189824036954`);
 	channel.send(
-		`${client.user.tag} is Online!\n${client.guilds.cache.size} Servers!\n${
-			client.users.cache.size - 1
-		} Users!`
+		`${client.user.tag} is Online!\n${client.guilds.cache.size} Servers!\n${count} Users!`
 	);
 };
 exports.run = run;
