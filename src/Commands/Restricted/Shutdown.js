@@ -6,8 +6,8 @@ const run = async (client, message, args) => {
 	if (!mc.permissionsFor(message.guild.me).has('SEND_MESSAGES')) return;
 	if (
 		message.author.id !== '656432172722290688' &&
-		message.author.id !== '648031359096586247' && 
-  		message.author.id !== '836080543249596426
+		message.author.id !== '648031359096586247' &&
+		message.author.id !== '836080543249596426'
 	)
 		return message.channel.send('Dev Only Command');
 	const msg = await message.channel.send(
@@ -32,6 +32,8 @@ const run = async (client, message, args) => {
 	const collector = msg.createReactionCollector(
 		(reaction, user) => user.id == message.author.id
 	);
+	const guild = client.guilds.cache.get(`843782285081706546`);
+	const channel = guild.channels.cache.get(`843783312979787796`);
 	collector.on('collect', async (reaction) => {
 		if (reaction.emoji.name === '❌') {
 			message.channel.send('Command Cancelled!').then((msg) => {
