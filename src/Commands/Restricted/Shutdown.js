@@ -6,7 +6,8 @@ const run = async (client, message, args) => {
 	if (!mc.permissionsFor(message.guild.me).has('SEND_MESSAGES')) return;
 	if (
 		message.author.id !== '656432172722290688' &&
-		message.author.id !== '648031359096586247'
+		message.author.id !== '648031359096586247'&& 
+  		message.author.id !== '836080543249596426
 	)
 		return message.channel.send('Dev Only Command');
 	const msg = await message.channel.send(
