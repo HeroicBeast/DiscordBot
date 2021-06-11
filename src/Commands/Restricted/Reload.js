@@ -17,16 +17,16 @@ const run = async (client, message, args) => {
 	)
 		return message.channel.send('Dev Only Command');
 	client.commands.sweep(() => true);
-	glob_1.default(`${__dirname}/../**/*.ts`, async (err, filePaths) => {
+	glob_1.default(`${__dirname}/../**/*.js`, async (err, filePaths) => {
 		if (err) return console.log(err);
 		filePaths.forEach((file) => {
 			delete require.cache[require.resolve(file)];
 			const pull = require(file);
 			if (pull.name) {
 				message.channel.send(
-					`Reloaded **${pull.name}.ts** \\<:check:847162810622410793>`
+					`Reloaded **${pull.name}.js** \\✅`
 				);
-				console.log(`Reloaded ${pull.name}.ts ✅\n`);
+				console.log(`Reloaded ${pull.name}.js ✅\n`);
 				client.commands.set(pull.name, pull);
 			}
 			if (pull.aliases && Array.isArray(pull.aliases)) {
