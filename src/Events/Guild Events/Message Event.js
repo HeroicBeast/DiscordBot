@@ -22,27 +22,16 @@ const run = async (client, message) => {
 	if (GuildConfig?.Prefix) {
 		prefix = GuildConfig.Prefix;
 	}
-	if (message) {
-		if (
-			message.content.toLowerCase() == '-verify' &&
-			message.guild.id == '843782285081706546' &&
-			message.channel.id == '843783312979787796'
-		) {
-			if (message.member.roles.cache.has(`848505717300396042`)) {
-				message.member.roles.add(`843782285081706549`) &&
-					message.member.roles
-						.remove(`848505717300396042`)
-						.then(() => message.delete());
-			} else {
-				message.delete();
-			}
-		} else if (
-			message.channel.id == '843783312979787796' &&
-			message.guild.id == '843782285081706546' &&
-			!message.author.bot
-		) {
-			message.delete();
-		}
+	if (
+		message.content.toLowerCase() == '-verify' &&
+		message.guild.id == '843782285081706546' &&
+		message.channel.id == '843783312979787796'
+	) {
+		if (message.member.roles.cache.has(`848505717300396042`)) {
+			message.member.roles.add(`843782285081706549`) &&
+				message.member.roles.remove(`848505717300396042`) &&
+				message.delete;
+		} else message.delete;
 	}
 	if (message.content.startsWith(`<@!${client.user.id}>`))
 		return message.channel.send(
@@ -51,42 +40,11 @@ const run = async (client, message) => {
 					color: '#30D5C8',
 					description: `**Hey There! I am Nexus...\nTo get help on all my commands do ${
 						GuildConfig?.Prefix || '+'
-					}help**\n[Support](https://dsc.gg/nexussupport)\n[Invite Me](https://dsc.gg/nexuscustomperms)`,
+					}help**`,
 				},
 				message
 			)
 		);
-	if (
-		message.content.startsWith(`-maintenance`) &&
-		message.author.id !== '656432172722290688' &&
-		message.author.id !== '648031359096586247' &&
-		message.author.id !== '836080543249596426'
-	) {
-		if (dev.Maintenance == `false`) {
-			DevSchema.update(
-				{ ID: `656432172722290688` },
-				{ Maintenance: `true` }
-			).then(() =>
-				message.channel
-					.send(
-						`Maintenance Mode Has Been Turned On! To Disable It do -maintenance`
-					)
-					.then(() => client.user.setActivity(`Maintenance Mode!`))
-			);
-			client.user.setActivity('Maintenance Mode', { type: 'PLAYING' });
-		} else if (dev.Maintenance == `true`) {
-			DevSchema.update({ ID: `656432172722290688` }, { Maintenance: `false` })
-				.then(() =>
-					message.channel.send(`Maintenance Mode Has Been Turned Off!`)
-				)
-				.then(() =>
-					client.user.setActivity(
-						`${client.guilds.cache.size} Servers and ${client.users.cache.size} Users! || Invite Me At dsc.gg/thenexusbot`,
-						{ type: 'WATCHING' }
-					)
-				);
-		} else message.channel.send('Errored...');
-	}
 	if (
 		message.author.bot ||
 		!message.guild ||
@@ -185,7 +143,7 @@ const run = async (client, message) => {
 	}
 	if (command.name == 'ban') {
 		if (GuildConfig?.Ban == 'disabled') {
-			return message.channel.send('This Command Is Disabled');
+			return await message.channel.send('This Command Is Disabled');
 		}
 	}
 	if (command.name == 'kick') {
@@ -200,7 +158,7 @@ const run = async (client, message) => {
 	}
 	if (command.name == 'muterole') {
 		if (GuildConfig?.Muterolecmd == 'disabled') {
-			return await message.channel.send('This Command Is Disabled');
+			return message.channel.send('This Command Is Disabled');
 		}
 	}
 	if (command.name == 'purge') {
@@ -282,49 +240,51 @@ const run = async (client, message) => {
 						Date.now(),
 				})
 			);
-	// if ((dev as any)?.Maintenance == 'true') {
-	// 	return message.channel.send(
-	// 		client
-	// 			.embed(
-	// 				{
-	// 					title: 'Maintenance Mode Is Turned On',
-	// 					description: `**You Cannot Use Commands While It Has Been Turned On. Please Check The Support Server For Bot Outages And Updates.**`,
-	// 					color: 'RANDOM',
-	// 				},
-	// 				message
-	// 			)
-	// 			.setFooter(
-	// 				message.author.username,
-	// 				message.author.displayAvatarURL({ format: 'png', dynamic: true })
-	// 			)
-	// 			.setTimestamp()
-	// 	);
-	// } else {
-	command.run(client, message, args).catch((reason) =>
-		message.channel
-			.send(
-				client.embed(
+	if (dev?.Maintenance == 'true') {
+		return message.channel.send(
+			client
+				.embed(
 					{
-						description: `**${reason}**\n [Click Here](https://dsc.gg/nexussupport) To Join The Support Server`,
-						title: `An Error Occured While Running This Command`,
-						color: 'RED',
+						title: 'Maintenance Mode Is Turned On',
+						description: `**You Cannot Use Commands While It Has Been Turned On. Please Check The [Support Server](https://dsc.gg/nexussuport) For Bot Outages And Updates.**`,
+						color: 'RANDOM',
 					},
 					message
 				)
-			)
-			.then(() => {
-				console.log(reason);
-				let channel = client.channels.cache.get(`832129461905391646`);
-				channel.send(
-					`Guild Id: \`${message.guild.id}\`\nGuild Name: \`${
-						message.guild.name
-					}\`\nCommand: \`${command.name.toUpperCase()}\`\nUser Id: \`${
-						message.author.id
-					}\`\nUser Tag: \`${message.author.tag}\`\nError:\n\`${reason}\`\n...`
-				);
-			})
-	);
-	// }
+				.setFooter(
+					message.author.username,
+					message.author.displayAvatarURL({ format: 'png', dynamic: true })
+				)
+				.setTimestamp()
+		);
+	} else {
+		command.run(client, message, args).catch((reason) =>
+			message.channel
+				.send(
+					client.embed(
+						{
+							description: `${reason}\n [Click Here](https://dsc.gg/nexussuport) To Join The Support Server`,
+							title: `An Error Occured While Running This Command.`,
+							color: 'RED',
+						},
+						message
+					)
+				)
+				.then(() => {
+					console.log(reason);
+					let channel = client.channels.cache.get(`832129461905391646`);
+					channel.send(
+						`Guild Id: \`${message.guild.id}\`\nGuild Name: \`${
+							message.guild.name
+						}\`\nCommand: \`${command.name.toUpperCase()}\`\nUser Id: \`${
+							message.author.id
+						}\`\nUser Tag: \`${
+							message.author.tag
+						}\`\nError:\n\`${reason}\`\n...`
+					);
+				})
+		);
+	}
 	client.cooldowns.set(
 		`${message.author.id}-${command.name}`,
 		Date.now() + command.cooldown
