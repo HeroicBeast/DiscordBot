@@ -7,8 +7,10 @@ const run = async (client) => {
 			client.users.cache.size - 1
 		} Users!`
 	);
+let count = 0;
+client.guilds.cache.forEach(guild => count += guild.memberCount)
 	client.user.setActivity(
-		`${client.guilds.cache.size} Servers and ${client.users.cache.size} Users! || Invite Me At dsc.gg/thenexusbot`,
+		`${client.guilds.cache.size} Servers and ${count} Users! || Invite Me At dsc.gg/thenexusbot`,
 		{ type: 'WATCHING' }
 	);
 	let channel = client.channels.cache.get(`835169189824036954`);
