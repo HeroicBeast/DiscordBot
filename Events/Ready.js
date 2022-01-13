@@ -17,8 +17,13 @@ Client.on('ready', async () => {
   const status = statuses[Math.floor(Math.random() * statuses.length)];
   setInterval(
     (
-      Client.user.setPresence({ activities: { name: status, type: 'WATCHING' } })
-    ), 60000,
+      Client.user.setPresence({
+        status: 'Online',
+        activity: {
+          name: status, type: 'WATCHING',
+        },
+      })
+    ), 30000,
   );
   console.log(`${Client.user.username} is now online!`);
 
