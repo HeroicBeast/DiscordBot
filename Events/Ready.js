@@ -11,7 +11,6 @@ Client.on('ready', async () => {
     'Youtube',
     'Twitch',
     'Prn',
-    'the minecraft server',
     'Beast Smp',
   ];
   const status2 = statuses[Math.floor(Math.random() * statuses.length)];
@@ -21,7 +20,7 @@ Client.on('ready', async () => {
   setInterval(() => {
     const status = statuses[Math.floor(Math.random() * statuses.length)];
     Client.user.setActivity({ name: status, type: 'WATCHING' });
-  }, 10000);
+  }, 30000);
 
   console.log(`${Client.user.username} is now online!`);
 
