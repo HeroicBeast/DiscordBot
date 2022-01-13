@@ -14,17 +14,15 @@ Client.on('ready', async () => {
     'the minecraft server',
     'Beast Smp',
   ];
-  const status = statuses[Math.floor(Math.random() * statuses.length)];
-  setInterval(
-    (
-      Client.user.setPresence({
-        status: 'Online',
-        activity: {
-          name: status, type: 'WATCHING',
-        },
-      })
-    ), 30000,
-  );
+  const status2 = statuses[Math.floor(Math.random() * statuses.length)];
+  Client.user.setPresence({ status: 'idle' });
+  Client.user.setActivity({ name: status2, type: 'WATCHING' });
+
+  setInterval(() => {
+    const status = statuses[Math.floor(Math.random() * statuses.length)];
+    Client.user.setActivity({ name: status, type: 'WATCHING' });
+  }, 10000);
+
   console.log(`${Client.user.username} is now online!`);
 
   createCmd(Client, '781932135631028244');
