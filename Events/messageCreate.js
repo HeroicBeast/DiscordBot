@@ -62,6 +62,10 @@ Client.on('messageCreate', async (message) => {
     return await message.delete().then(message.member.timeout(60000) && message.channel.send(`<@${message.author.id}> has been muted for a minute`));
   }
 
+  if (message.content.toLowerCase().includes('https://cdn.discordapp.com/attachments/766235212908462100/930401221011984434/cachedVideo.mp4')) {
+    return await message.delete().then(message.member.timeout(60000) && message.channel.send(`@${message.author.id}> has been muted for a minute`));
+  }
+
   if (message.content.toLowerCase().includes('santosh')) {
     return await message.react('<:skswhengrills:894437128140881970>');
   }
