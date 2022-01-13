@@ -85,8 +85,8 @@ fs.readdirSync('./Slash/').forEach((dir) => {
 });
 
 // Command
-fs.readdirSync('./commands/').forEach((dir) => {
-  fs.readdir(`./commands/${dir}`, (err, files) => {
+fs.readdirSync('./Commands/').forEach((dir) => {
+  fs.readdir(`./Commands/${dir}`, (err, files) => {
     if (err) throw err;
 
     const jsFiles = files.filter((f) => f.split('.').pop() === 'js');
@@ -96,7 +96,7 @@ fs.readdirSync('./commands/').forEach((dir) => {
     }
 
     jsFiles.forEach((file) => {
-      const fileGet = require(`./commands/${dir}/${file}`);
+      const fileGet = require(`./Commands/${dir}/${file}`);
 
       console.log(`✅ ${file}`);
       try {
