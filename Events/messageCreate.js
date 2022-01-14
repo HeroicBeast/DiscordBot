@@ -10,9 +10,9 @@
 const { Client } = require('../index');
 
 Client.on('messageCreate', async (message) => {
-  if (!message.guild.id == '781932135631028244') return message.reply('No.');
-
   if (message.author.bot || message.channel.type === 'DM') return;
+
+  if (message.guild.id !== '781932135631028244') return message.reply('No.');
 
   if (message.content.toLowerCase().includes('doraemon')) {
     return await message.delete().then(message.member.timeout(60000) && message.channel.send(`<@${message.author.id}> has been muted for a minute`));
