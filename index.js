@@ -36,6 +36,7 @@ Client.events = new Discord.Collection();
 Client.SlashCmds = new Discord.Collection();
 
 module.exports.Client = Client;
+require('./mongo')();
 
 // Event
 // eslint-disable-next-line arrow-parens

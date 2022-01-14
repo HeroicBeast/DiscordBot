@@ -20,5 +20,4 @@ module.exports.run = async (inter) => {
 
 module.exports.help = {
   name: 'avatar',
-  permission: [],
 };

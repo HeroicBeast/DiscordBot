@@ -30,5 +30,4 @@ module.exports.run = async (inter) => {
 
 module.exports.help = {
   name: 'cat',
-  permission: [],
 };

@@ -1,4 +1,5 @@
 {
     "token": "OTMwNjYyMzkyMTI2MzczOTA5.Yd5I5Q.CZla68pvRhbVVVQKm66zN_IyssE",
-    "prefix": "-"
+    "prefix": "-",
+    "mongoPath": "mongodb+srv://heroicbeast:bbbshyawysys3bf@cluster0.jedbk.mongodb.net/Data?retryWrites=true&w=majority"
 }

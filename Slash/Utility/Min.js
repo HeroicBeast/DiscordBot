@@ -10,5 +10,4 @@ module.exports.run = async (inter) => {
 
 module.exports.help = {
   name: 'min',
-  permission: [],
 };
