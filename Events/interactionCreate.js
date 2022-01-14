@@ -6,7 +6,6 @@ const { Client } = require('../index');
 Client.on('interactionCreate', async (inter) => {
   if (inter.isCommand()) {
     const slashCmds = Client.SlashCmds.get(inter.commandName);
-    if (inter.member.permissions.has(slashCmds.help.permission)) return;
     if (slashCmds) slashCmds.run(inter);
   }
 });

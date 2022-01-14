@@ -1,4 +1,5 @@
 /* eslint-disable linebreak-style */
+/* eslint-disable max-len */
 /* eslint-disable eqeqeq */
 /* eslint-disable consistent-return */
 module.exports.run = async (Client, message, args, prefix) => {
@@ -178,10 +179,10 @@ module.exports.run = async (Client, message, args, prefix) => {
   }
 
   if (user.id == Client.user.id) {
-    return message.author.send(array[Math.floor(Math.random() * array.length)]);
+    return message.author.send(array[Math.floor(Math.random() * array.length)]).catch(() => message.channel.send('Could not send a dm'));
   }
 
-  user.send(array[Math.floor(Math.random() * array.length)]);
+  user.send(array[Math.floor(Math.random() * array.length)]).catch(() => message.channel.send('Could not send a dm'));
 };
 
 module.exports.help = {
