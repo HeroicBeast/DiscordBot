@@ -1,4 +1,5 @@
 /* eslint-disable linebreak-style */
+/* eslint-disable no-console */
 /* eslint-disable no-useless-return */
 /* eslint-disable max-len */
 /* eslint-disable global-require */
@@ -64,6 +65,18 @@ Client.on('messageCreate', async (message) => {
 
   if (message.content.toLowerCase().includes('https://cdn.discordapp.com/attachments/766235212908462100/930401221011984434/cachedVideo.mp4')) {
     return await message.delete().then(message.member.timeout(60000) && message.channel.send(`@${message.author.id}> has been muted for a minute`));
+  }
+
+  if (message.content.toLowerCase().includes('https://tenor.com/view/freaksandgeeks-blizzard-gif-20107599')) {
+    return await message.delete().then(message.member.timeout(60000) && message.channel.send(`@${message.author.id}> has been muted for a minute`));
+  }
+
+  if (message.content.toLowerCase().includes('https://tenor.com/view/its-you-pointing-you-sunglasses-gif-17739100')) {
+    return await message.delete().then(message.member.timeout(60000) && message.channel.send(`@${message.author.id}> has been muted for a minute`));
+  }
+
+  if (message.content.toLowerCase().includes('656432172722290688')) {
+    return await message.react('<:lipbite:926001179899609149');
   }
 
   if (message.content.toLowerCase().includes('santosh')) {
