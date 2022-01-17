@@ -83,6 +83,10 @@ Client.on('messageCreate', async (message) => {
     return await message.react('<:skswhengrills:894437128140881970>');
   }
 
+  if (message.content.toLowerCase().includes('https://tenor.com/view/anus-funny-anal-gay-ajith-gif-13400206')) {
+    return await message.delete().then(message.member.timeout(60000) && message.channel.send(`@${message.author.id}> has been muted for a minute`));
+  }
+
   const { prefix } = require('../config.json');
   const messageArray = message.content.split(' ');
   const cmd = messageArray[0];
