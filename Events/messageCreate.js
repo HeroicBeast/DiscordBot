@@ -51,6 +51,10 @@ Client.on('messageCreate', async (message) => {
     return await message.delete().then(message.member.timeout(60000) && message.channel.send(`<@${message.author.id}> has been muted for a minute`));
   }
 
+  if (message.content.toLowerCase().includes('poty')) {
+    return await message.delete().then(message.member.timeout(60000) && message.channel.send(`<@${message.author.id}> has been muted for a minute`));
+  }
+
   if (message.content.toLowerCase().includes('tharki')) {
     return await message.react('<:skswhengrills:894437128140881970>');
   }
@@ -68,11 +72,11 @@ Client.on('messageCreate', async (message) => {
   }
 
   if (message.content.toLowerCase().includes('https://tenor.com/view/freaksandgeeks-blizzard-gif-20107599')) {
-    return await message.delete().then(message.member.timeout(60000) && message.channel.send(`<@${message.author.id}> has been muted for a minute`));
+    return await message.delete().then(message.member.timeout(60000) && message.channel.send(`@${message.author.id}> has been muted for a minute`));
   }
 
   if (message.content.toLowerCase().includes('https://tenor.com/view/its-you-pointing-you-sunglasses-gif-17739100')) {
-    return await message.delete().then(message.member.timeout(60000) && message.channel.send(`<@${message.author.id}> has been muted for a minute`));
+    return await message.delete().then(message.member.timeout(60000) && message.channel.send(`@${message.author.id}> has been muted for a minute`));
   }
 
   if (message.content.toLowerCase().includes('656432172722290688')) {
@@ -84,7 +88,7 @@ Client.on('messageCreate', async (message) => {
   }
 
   if (message.content.toLowerCase().includes('https://tenor.com/view/anus-funny-anal-gay-ajith-gif-13400206')) {
-    return await message.delete().then(message.member.timeout(60000) && message.channel.send(`<@${message.author.id}> has been muted for a minute`));
+    return await message.delete().then(message.member.timeout(60000) && message.channel.send(`@${message.author.id}> has been muted for a minute`));
   }
 
   const { prefix } = require('../config.json');
