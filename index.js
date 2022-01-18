@@ -110,6 +110,8 @@ fs.readdirSync('./Commands/').forEach((dir) => {
 
 // Message Edit
 Client.on('messageUpdate', async (oldMessage, newMessage) => {
+  if (newMessage.author.bot || newMessage.channel.type === 'DM') return;
+  if (newMessage.guild.id !== '781932135631028244') return;
   if (newMessage.content.toLowerCase().includes('doraemon')) {
     return await newMessage.delete().then(newMessage.member.timeout(60000) && newMessage.channel.send(`<@${newMessage.author.id}> has been muted for a minute`));
   } if (newMessage.content.toLowerCase().includes('suneo')) {
