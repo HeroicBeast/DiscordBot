@@ -114,33 +114,76 @@ Client.on('messageUpdate', async (oldMessage, newMessage) => {
   if (newMessage.guild.id !== '781932135631028244') return;
   if (newMessage.content.toLowerCase().includes('doraemon')) {
     return await newMessage.delete().then(newMessage.member.timeout(60000) && newMessage.channel.send(`<@${newMessage.author.id}> has been muted for a minute`));
-  } if (newMessage.content.toLowerCase().includes('suneo')) {
+  }
+  if (newMessage.content.toLowerCase().includes('suneo')) {
     return await newMessage.delete().then(newMessage.member.timeout(60000) && newMessage.channel.send(`<@${newMessage.author.id}> has been muted for a minute`));
-  } if (newMessage.content.toLowerCase().includes('shinchan')) {
+  }
+  if (newMessage.content.toLowerCase().includes('shinchan')) {
     return await newMessage.delete().then(newMessage.member.timeout(60000) && newMessage.channel.send(`<@${newMessage.author.id}> has been muted for a minute`));
-  } if (newMessage.content.toLowerCase().includes('shin-chan')) {
+  }
+  if (newMessage.content.toLowerCase().includes('shin-chan')) {
     return await newMessage.delete().then(newMessage.member.timeout(60000) && newMessage.channel.send(`<@${newMessage.author.id}> has been muted for a minute`));
-  } if (newMessage.content.toLowerCase().includes('niggi')) {
+  }
+  if (newMessage.content.toLowerCase().includes('niggi')) {
     return await newMessage.delete().then(newMessage.member.timeout(60000) && newMessage.channel.send(`<@${newMessage.author.id}> has been muted for a minute`));
-  } if (newMessage.content.toLowerCase().includes('nigga')) {
+  }
+  if (newMessage.content.toLowerCase().includes('nigga')) {
     return await newMessage.delete().then(newMessage.member.timeout(60000) && newMessage.channel.send(`<@${newMessage.author.id}> has been muted for a minute`));
-  } if (newMessage.content.toLowerCase().includes('hittori')) {
+  }
+  if (newMessage.content.toLowerCase().includes('hittori')) {
     return await newMessage.delete().then(newMessage.member.timeout(60000) && newMessage.channel.send(`<@${newMessage.author.id}> has been muted for a minute`));
-  } if (newMessage.content.toLowerCase().includes('potty')) {
+  }
+  if (newMessage.content.toLowerCase().includes('potty')) {
     return await newMessage.delete().then(newMessage.member.timeout(60000) && newMessage.channel.send(`<@${newMessage.author.id}> has been muted for a minute`));
-  } if (newMessage.content.toLowerCase().includes('https://api.creavite.co/out/f139cc60-94bb-4da0-a173-d75c62c83f57_standard.gif')) {
+  }
+  if (newMessage.content.toLowerCase().includes('https://api.creavite.co/out/f139cc60-94bb-4da0-a173-d75c62c83f57_standard.gif')) {
     return await newMessage.delete().then(newMessage.member.timeout(120000) && newMessage.channel.send(`<@${newMessage.author.id}> has been muted for 2 minutes`));
-  } if (newMessage.content.toLowerCase().includes('https://cdn.discordapp.com/attachments/851325180524888095/930504487523745792/video-output-C71AD518-35E3-44BE-840E-A07F4BFAE976.mp4')) {
+  }
+  if (newMessage.content.toLowerCase().includes('https://cdn.discordapp.com/attachments/851325180524888095/930504487523745792/video-output-C71AD518-35E3-44BE-840E-A07F4BFAE976.mp4')) {
     return await newMessage.delete().then(newMessage.member.timeout(60000) && newMessage.channel.send(`<@${newMessage.author.id}> has been muted for a minute`));
-  } if (newMessage.content.toLowerCase().includes('https://cdn.discordapp.com/attachments/766235212908462100/930401221011984434/cachedVideo.mp4')) {
-    return await newMessage.delete().then(newMessage.member.timeout(60000) && newMessage.channel.send(`@${newMessage.author.id}> has been muted for a minute`));
-  } if (newMessage.content.toLowerCase().includes('https://tenor.com/view/freaksandgeeks-blizzard-gif-20107599')) {
-    return await newMessage.delete().then(newMessage.member.timeout(60000) && newMessage.channel.send(`@${newMessage.author.id}> has been muted for a minute`));
-  } if (newMessage.content.toLowerCase().includes('https://tenor.com/view/its-you-pointing-you-sunglasses-gif-17739100')) {
-    return await newMessage.delete().then(newMessage.member.timeout(60000) && newMessage.channel.send(`@${newMessage.author.id}> has been muted for a minute`));
-  } if (newMessage.content.toLowerCase().includes('https://tenor.com/view/anus-funny-anal-gay-ajith-gif-13400206')) {
+  }
+  if (newMessage.content.toLowerCase().includes('https://cdn.discordapp.com/attachments/766235212908462100/930401221011984434/cachedVideo.mp4')) {
     return await newMessage.delete().then(newMessage.member.timeout(60000) && newMessage.channel.send(`@${newMessage.author.id}> has been muted for a minute`));
   }
+  if (newMessage.content.toLowerCase().includes('https://tenor.com/view/freaksandgeeks-blizzard-gif-20107599')) {
+    return await newMessage.delete().then(newMessage.member.timeout(60000) && newMessage.channel.send(`@${newMessage.author.id}> has been muted for a minute`));
+  }
+  if (newMessage.content.toLowerCase().includes('https://tenor.com/view/its-you-pointing-you-sunglasses-gif-17739100')) {
+    return await newMessage.delete().then(newMessage.member.timeout(60000) && newMessage.channel.send(`@${newMessage.author.id}> has been muted for a minute`));
+  }
+  if (newMessage.content.toLowerCase().includes('https://tenor.com/view/anus-funny-anal-gay-ajith-gif-13400206')) {
+    return await newMessage.delete().then(newMessage.member.timeout(60000) && newMessage.channel.send(`@${newMessage.author.id}> has been muted for a minute`));
+  }
+});
+
+// Message Delete
+Client.on('messageDelete', async msg => {
+  let o = msg.content;
+  if (o.length > 1500) o = 'Content to long to display';
+  const embed = new Discord.MessageEmbed()
+    .setAuthor(`${msg.author.tag}`, msg.author.displayAvatarURL({ format: 'png', dynamic: true }))
+    .setTitle(`Message deleted in #${msg.channel.name}`)
+    .setColor('RED')
+    .setDescription(msg.content || 'No Content')
+    .setFooter('Sks is an idiot', msg.author.displayAvatarURL({ format: 'png', dynamic: true }))
+    .setTimestamp();
+  Client.channels.cache.get('932941302163734539').send({ embeds: [embed] });
+});
+
+// Logs Message Update
+Client.on('messageUpdate', async (oldMsg, newMsg) => {
+  let o = oldMsg.content;
+  if (o.length > 1500) o = 'Content to long to display';
+  let a = newMsg.content;
+  if (a.length > 1500) a = 'Content to long to display';
+  const embed = new Discord.MessageEmbed()
+    .setAuthor(`${oldMsg.author.tag}`, oldMsg.author.displayAvatarURL({ format: 'png', dynamic: true }))
+    .setTitle(`Message edited in #${oldMsg.channel.name}`)
+    .setColor('GREEN')
+    .setDescription(`**Before:** ${oldMsg.content}\n**After:** ${newMsg.content}`)
+    .setFooter('Sks is an idiot', newMsg.author.displayAvatarURL({ format: 'png', dynamic: true }))
+    .setTimestamp();
+  Client.channels.cache.get('932941302163734539').send({ embeds: [embed] });
 });
 
 // Login
