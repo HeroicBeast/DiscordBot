@@ -1,4 +1,5 @@
 /* eslint-disable linebreak-style */
+/* eslint-disable no-param-reassign */
 /* eslint-disable no-return-await */
 /* eslint-disable no-unused-vars */
 /* eslint-disable arrow-parens */
@@ -72,6 +73,9 @@ fs.readdirSync('./Slash/').forEach((dir) => {
       const fileGet = require(`./Slash/${dir}/${file}`);
 
       console.log(`✅ [Slash] ${file}`);
+      Client.on('ready', () => {
+        Client.channels.cache.get('932941302163734539').send(`\\✅ [Slash] ${file}`);
+      });
       try {
         Client.SlashCmds.set(fileGet.help.name, fileGet);
       } catch (error) {
@@ -96,6 +100,9 @@ fs.readdirSync('./Commands/').forEach((dir) => {
       const fileGet = require(`./Commands/${dir}/${file}`);
 
       console.log(`✅ ${file}`);
+      Client.on('ready', () => {
+        Client.channels.cache.get('932941302163734539').send(`\\✅ ${file}`);
+      });
       try {
         Client.commands.set(fileGet.help.name, fileGet);
         fileGet.help.aliases.forEach((alias) => {
@@ -177,6 +184,7 @@ Client.on('messageUpdate', async (oldMsg, newMsg) => {
   let a = newMsg.content;
   if (a.length > 1500) a = 'Content to long to display';
   if (oldMsg.author.bot) return;
+  if (oldMsg.content = newMsg.content) return;
   const embed = new Discord.MessageEmbed()
     .setAuthor(`${oldMsg.author.tag}`, oldMsg.author.displayAvatarURL({ format: 'png', dynamic: true }))
     .setTitle(`Message edited in #${oldMsg.channel.name}`)
