@@ -96,6 +96,6 @@ Client.on('messageCreate', async (message) => {
   const cmd = messageArray[0];
   const args = messageArray.slice(1);
   const commands = Client.commands.get(cmd.slice(prefix.length)) || Client.commands.get(Client.aliases.get(cmd.slice(prefix.length)));
-  if (commands) commands.run(Client, message, args, prefix);
+  try { if (commands) commands.run(Client, message, args, prefix); } catch (error) { message.channel.send('An error occured'); }
   if (!message.content.startsWith(prefix)) return;
 });
