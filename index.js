@@ -184,7 +184,6 @@ Client.on('messageUpdate', async (oldMsg, newMsg) => {
   let a = newMsg.content;
   if (a.length > 1500) a = 'Content to long to display';
   if (oldMsg.author.bot) return;
-  if (oldMsg.content = newMsg.content) return;
   const embed = new Discord.MessageEmbed()
     .setAuthor(`${oldMsg.author.tag}`, oldMsg.author.displayAvatarURL({ format: 'png', dynamic: true }))
     .setTitle(`Message edited in #${oldMsg.channel.name}`)
