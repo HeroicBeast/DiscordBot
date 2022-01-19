@@ -24,5 +24,9 @@ Client.on('ready', async () => {
 
   console.log(`${Client.user.username} is now online!`);
 
+  setTimeout(() => {
+    Client.channels.cache.get('932941302163734539').send(`${Client.user.username} is now online!`);
+  }, 5000);
+
   createCmd(Client, '781932135631028244');
 });
