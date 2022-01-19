@@ -23,6 +23,8 @@ module.exports.run = async (inter) => {
     .setFooter('Sks is an idiot', inter.member.user.displayAvatarURL({ format: 'png', dynamic: true }))
     .setColor('RANDOM')
     .setDescription(`**[Click Here](${img})**`)
+    .setTitle(`r/${random}`)
+    .setURL(`https://reddit.com/r/${random}`)
     .setImage(img);
   await inter.deferReply();
   await inter.editReply({ embeds: [embed] });
