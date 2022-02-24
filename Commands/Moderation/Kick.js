@@ -13,7 +13,8 @@ module.exports.run = async (Client, message, args, prefix) => {
     return message.reply('No kicking admins');
   }
 
-  message.mentions.members.first().user.send('You have been kicked from Beast SMP because yes').then(message.mentions.members.first().kick('Because yes').then(message.reply('User has been kicked')));
+  message.mentions.members.first().user.send('You have been kicked from Beast SMP because yes').catch(() => message.channel.send('Could not send a dm'));
+  message.mentions.members.first().kick('Because yes').then(message.reply('User has been kicked'));
 };
 
 module.exports.help = {
