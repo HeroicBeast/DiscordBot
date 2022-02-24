@@ -13,7 +13,7 @@ const { Client } = require('../index');
 Client.on('messageCreate', async (message) => {
   if (message.channel.type === 'DM') return;
 
-  if (message.guild.id !== '781932135631028244') return message.reply('No.');
+  if (message.guild.id !== '781932135631028244') return;
 
   if (message.author.bot) {
     if (message.content.toLowerCase().includes('doraemon')) {
