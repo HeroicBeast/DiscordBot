@@ -125,6 +125,10 @@ Client.on('messageCreate', async (message) => {
     return await message.delete().then(message.member.timeout(60000) && message.channel.send(`<@${message.author.id}> has been muted for a minute`));
   }
 
+  if (message.content.toLowerCase().includes('n*gga')) {
+    return await message.delete().then(message.member.timeout(60000) && message.channel.send(`<@${message.author.id}> has been muted for a minute`));
+  }
+
   if (message.content.toLowerCase().includes('hittori')) {
     return await message.delete().then(message.member.timeout(60000) && message.channel.send(`<@${message.author.id}> has been muted for a minute`));
   }
@@ -134,6 +138,10 @@ Client.on('messageCreate', async (message) => {
   }
 
   if (message.content.toLowerCase().includes('poty')) {
+    return await message.delete().then(message.member.timeout(60000) && message.channel.send(`<@${message.author.id}> has been muted for a minute`));
+  }
+
+ if (message.content.toLowerCase().includes('p*t')) {
     return await message.delete().then(message.member.timeout(60000) && message.channel.send(`<@${message.author.id}> has been muted for a minute`));
   }
 
