@@ -125,7 +125,11 @@ Client.on('messageCreate', async (message) => {
     return await message.delete().then(message.member.timeout(60000) && message.channel.send(`<@${message.author.id}> has been muted for a minute`));
   }
 
-  if (message.content.toLowerCase().includes('n*gga')) {
+  if (message.content.toLowerCase().includes('n*g')) {
+    return await message.delete().then(message.member.timeout(60000) && message.channel.send(`<@${message.author.id}> has been muted for a minute`));
+  }
+
+  if (message.content.toLowerCase().includes('nig')) {
     return await message.delete().then(message.member.timeout(60000) && message.channel.send(`<@${message.author.id}> has been muted for a minute`));
   }
 
