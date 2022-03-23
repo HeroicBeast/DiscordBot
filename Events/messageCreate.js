@@ -177,6 +177,14 @@ Client.on('messageCreate', async (message) => {
     return await message.delete().then(message.member.timeout(60000) && message.channel.send(`<@${message.author.id}> has been muted for a minute`));
   }
 
+  if (message.content.toLowerCase().includes('ratio')) {
+    return await message.delete();
+  }
+
+  if (message.content.toLowerCase().includes('r*tio')) {
+    return await message.delete();
+  }
+
   if (message.content.toLowerCase().includes('656432172722290688')) {
     return await message.react('<:lipbite:926001179899609149');
   }
